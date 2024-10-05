@@ -12,7 +12,6 @@ Este es un proyecto de una aplicación web construida con **React**, **GraphQL**
 - [Arquitectura](#arquitectura)
 - [Estándares de Código](#estándares-de-código)
 - [Contribuciones](#contribuciones)
-- [Licencia](#licencia)
 
 ## Características
 
@@ -43,7 +42,7 @@ src/
 ├── api/                 # Integraciones con la PokeAPI usando GraphQL
 ├── application/         # Casos de uso de la aplicación
 ├── domain/              # Entidades y lógica de negocio
-├── infrastructure/      # Implementaciones técnicas (GraphQL, Redux)
+├── services/      # Implementaciones técnicas (GraphQL, Redux)
 ├── ui/                  # Componentes organizados con Atomic Design
 │   ├── atoms/           # Componentes básicos (botones, inputs)
 │   ├── molecules/       # Agrupaciones de átomos (tarjetas, formularios simples)
