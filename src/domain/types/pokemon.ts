@@ -1,10 +1,9 @@
 interface IPokemonDetail {
   name: string
+  id: number
 }
 
 export interface IPokemon {
-  id: number
-  pokemon_id: number
   sprites: string
   pokemon_v2_pokemon: IPokemonDetail
 }

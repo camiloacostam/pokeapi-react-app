@@ -1,0 +1,15 @@
+.sort-by-filter-container {
+  position: relative;
+}
+
+.filter-box {
+  position: absolute;
+  z-index: 1;
+  left: -80px;
+  top: 40px;
+  display: none;
+}
+
+.open {
+  display: block;
+}
