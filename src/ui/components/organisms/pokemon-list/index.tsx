@@ -10,7 +10,7 @@ export default function PokemonList({
   pokemonsList: IPokemon[]
 }) {
   return (
-    <body className="pokemon-list-container">
+    <main className="pokemon-list-container">
       <div className="pokemon-list">
         {pokemonsList?.map((pokemon: IPokemon) => (
           <PokemonCard
@@ -19,6 +19,6 @@ export default function PokemonList({
           />
         ))}
       </div>
-    </body>
+    </main>
   )
 }

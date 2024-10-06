@@ -42,7 +42,7 @@ src/
 ├── api/                 # Integraciones con la PokeAPI usando GraphQL
 ├── application/         # Casos de uso de la aplicación
 ├── domain/              # Entidades y lógica de negocio
-├── services/      # Implementaciones técnicas (GraphQL, Redux)
+├── services/            # Implementaciones técnicas (GraphQL, Redux)
 ├── ui/                  # Componentes organizados con Atomic Design
 │   ├── atoms/           # Componentes básicos (botones, inputs)
 │   ├── molecules/       # Agrupaciones de átomos (tarjetas, formularios simples)

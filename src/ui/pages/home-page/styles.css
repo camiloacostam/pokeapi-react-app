@@ -3,6 +3,8 @@
   margin: 0;
   background: #dc0a2d;
   padding: 20px 4px;
+  height: 100%;
+  min-height: 100vh;
 }
 
 h1 {

@@ -1,35 +1,24 @@
 import { useQuery } from '@apollo/client'
 // Queries
-import { GET_POKEMON_QUERY } from '../api/graphql/queries'
-//hooks
-import { useSelector } from 'react-redux'
+import { GET_POKEMON_DETAIL_QUERY } from '../api/graphql/queries'
+import { IPokemonDetail } from '../domain/types/pokemon'
 
-interface IUsePokemon {
+interface IUsePokemonDetail {
   loading: boolean
   error: any
-  pokemonsData: any
+  pokemonData: IPokemonDetail
 }
 
-export function usePokemon(): IUsePokemon {
-  const { filterBy } = useSelector((state) => state.filterBy)
-  const { searchFilter } = useSelector((state) => state.searchFilter)
-
-  const { loading, error, data } = useQuery(GET_POKEMON_QUERY, {
+export function usePokemonDetail(id: number | string): IUsePokemonDetail {
+  const { loading, error, data } = useQuery(GET_POKEMON_DETAIL_QUERY, {
     variables: {
-      limit: 100,
-      sortBy: {
-        pokemon_v2_pokemon: {
-          [filterBy]: 'asc'
-        }
-      },
-      searchInt: (!isNaN(searchFilter) && parseInt(searchFilter)) || -1,
-      searchString: `%${searchFilter}%`
+      id
     }
   })
 
   return {
     loading,
     error,
-    pokemonsData: data
+    pokemonData: data?.pokemon_v2_pokemon[0]
   }
 }

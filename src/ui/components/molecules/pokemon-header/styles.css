@@ -1,0 +1,41 @@
+.pokemon-header-container {
+  width: 360px;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.pokemon-name-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  text-transform: capitalize;
+}
+
+.name-container {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.image-container img {
+  height: 200px;
+  width: auto;
+  min-width: 200px;
+}
+
+.image-container button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
