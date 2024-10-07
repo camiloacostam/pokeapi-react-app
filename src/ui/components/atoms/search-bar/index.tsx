@@ -1,18 +1,35 @@
+import { useState } from 'react'
 import './styles.css'
 import { SearchIcon } from '../icons/search-icon'
 import { XIcon } from '../icons/x-icon'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setSearchFilter } from '../../../../domain/search-filter-slice'
 
 export default function SearchBar() {
-  const { searchFilter } = useSelector((state: any) => state.searchFilter)
+  const [search, setSearch] = useState('')
+  const [error, setError] = useState('')
   const dispatch = useDispatch()
 
   const handleInput = (e: any) => {
-    dispatch(setSearchFilter(e.target.value))
+    const value = e.target.value
+    setSearch(value)
+    setError('')
+
+    if (/[^a-zA-Z0-9 ]/g.test(value)) {
+      dispatch(setSearchFilter(''))
+      setError('No special characters are allowed.')
+    } else if (value.length < 3) {
+      dispatch(setSearchFilter(''))
+      setError('The input must have at least 3 characters.')
+    } else {
+      dispatch(setSearchFilter(value))
+      setError('')
+    }
   }
 
   const handleClear = () => {
+    setSearch('')
+    setError('')
     dispatch(setSearchFilter(''))
   }
 
@@ -23,7 +40,7 @@ export default function SearchBar() {
         <input
           id="search-input"
           onChange={handleInput}
-          value={searchFilter}
+          value={search}
           type="text"
           name="product-search"
           placeholder="Search Pokemon"
@@ -32,6 +49,7 @@ export default function SearchBar() {
           <XIcon />
         </button>
       </div>
+      <div className="error-message">{error && <p>{error}</p>}</div>
     </div>
   )
 }

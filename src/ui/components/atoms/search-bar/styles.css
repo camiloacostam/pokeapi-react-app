@@ -48,12 +48,9 @@ body {
   cursor: pointer;
 }
 
-/* @media (max-width: 768px) {
-  .input-wrap {
-    width: 96%;
-  }
-
-  .results-wrap {
-    width: 96%;
-  }
-} */
+.error-message {
+  color: white;
+  padding: 0 1rem 0 1rem;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
