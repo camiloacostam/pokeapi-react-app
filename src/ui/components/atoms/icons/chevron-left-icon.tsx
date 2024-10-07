@@ -14,9 +14,9 @@ export function ChevronLeftIcon({ size = 1 }: IProps) {
     >
       <path
         stroke="#fff"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
         d="m14 8-4 4 4 4"
       />
     </svg>

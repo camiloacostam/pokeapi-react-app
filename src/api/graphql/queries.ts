@@ -41,8 +41,18 @@ export const GET_POKEMON_QUERY = gql`
 `
 
 export const GET_FAVORITES_POKEMONS_QUERY = gql`
-  query GetPokemons($idArray: [Int!]) {
-    pokemon_v2_pokemonsprites(where: { _or: [{ id: { _in: $idArray } }] }) {
+  query GetFavoritesPokemons($idArray: [Int!], $offset: Int = 0) {
+    pokemon_v2_pokemonsprites_aggregate(
+      where: { _or: [{ id: { _in: $idArray } }] }
+    ) {
+      aggregate {
+        count
+      }
+    }
+    pokemon_v2_pokemonsprites(
+      offset: $offset
+      where: { _or: [{ id: { _in: $idArray } }] }
+    ) {
       sprites(path: "other.official-artwork.front_default")
       pokemon_v2_pokemon {
         name
