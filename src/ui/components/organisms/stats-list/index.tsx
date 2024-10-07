@@ -19,7 +19,7 @@ export default function StatsList({ stats, color }: IStatsListProps) {
 
       <div className="stat-container">
         {stats.map((stat, index) => (
-          <ProgressBar stat={stat?.base_stat} color={color} />
+          <ProgressBar key={index} stat={stat?.base_stat} color={color} />
         ))}
       </div>
     </div>
