@@ -1,0 +1,6 @@
+.tag-container {
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-transform: capitalize;
+}

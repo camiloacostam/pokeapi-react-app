@@ -1,0 +1,35 @@
+.pokemon-detail-card-container {
+  background: white;
+  box-shadow: 0px 1px 3px 1px #00000040 inset;
+  border-radius: 8px;
+  height: 100%;
+  min-height: 412px;
+  width: 100%;
+  min-width: 352px;
+  max-width: 352px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 20px;
+  gap: 16px;
+}
+
+.type-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-container-description {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}

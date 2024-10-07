@@ -1,0 +1,23 @@
+.stat-list-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  font-weight: 700;
+  text-transform: uppercase;
+  gap: 16px;
+}
+
+.stat-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.divider {
+  width: 1px;
+  height: auto;
+  border: 1px #e0e0e0 solid;
+}

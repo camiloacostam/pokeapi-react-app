@@ -10,6 +10,7 @@ import { getPokemonTypeColor } from '../../utils/pokemon-type-colors'
 //components
 import Spinner from '../../components/atoms/spinner'
 import PokemonHeader from '../../components/molecules/pokemon-header'
+import PokemonDetailCard from '../../components/organisms/pokemon-detail-card'
 
 export default function PokemonDetailPage() {
   const [bgColor, setBgColor] = useState('#fffff')
@@ -48,7 +49,20 @@ export default function PokemonDetailPage() {
               img={pokemonData?.pokemon_v2_pokemonsprites[0]?.sprites}
             />
           </section>
-          <section className="pokemon-detail-info"></section>
+          <section className="pokemon-detail-info">
+            <PokemonDetailCard
+              types={pokemonData?.pokemon_v2_pokemontypes}
+              weight={pokemonData?.weight}
+              height={pokemonData?.height}
+              moves={pokemonData?.pokemon_v2_pokemonabilities}
+              description={
+                pokemonData?.pokemon_v2_pokemonspecy
+                  ?.pokemon_v2_pokemonspeciesflavortexts[0]?.flavor_text
+              }
+              stats={pokemonData?.pokemon_v2_pokemonstats}
+              color={bgColor}
+            />
+          </section>
         </article>
       )}
     </>

@@ -8,21 +8,21 @@ export interface IPokemonSummaryList {
   pokemon_v2_pokemon: IPokemonSummary
 }
 
-interface IPokemonType {
+export interface IPokemonType {
   pokemon_v2_type: {
     name: string
     slot: number
   }
 }
 
-interface IPokemonStat {
+export interface IPokemonStat {
   base_stat: number
   pokemon_v2_stat: {
     name: string
   }
 }
 
-interface IPokemonAbility {
+export interface IPokemonAbility {
   pokemon_v2_ability: {
     name: string
   }

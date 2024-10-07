@@ -1,0 +1,10 @@
+.progress-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.progress-bar-container p {
+  color: #1d1d1d;
+  font-weight: 400;
+}
