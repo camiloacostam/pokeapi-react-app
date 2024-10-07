@@ -11,9 +11,8 @@
 }
 
 .pokemon-detail-container {
-  background-image: url('../../../assets/Pokeball.svg');
-  background-repeat: no-repeat;
-  background-position: top right;
+  height: 270px;
+  z-index: 1;
 }
 
 .pokemon-detail-info {
