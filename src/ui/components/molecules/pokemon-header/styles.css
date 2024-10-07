@@ -4,9 +4,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background-image: url('../../../../assets/Pokeball.svg');
-  background-repeat: no-repeat;
-  background-position: top right;
 }
 
 .pokemon-name-detail {

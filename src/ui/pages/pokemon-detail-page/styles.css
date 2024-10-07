@@ -8,13 +8,23 @@
   align-items: center;
   padding: 24px 4px;
   position: relative;
+  background-image: url('../../../assets/Pokeball.svg');
+  background-repeat: no-repeat;
+  background-position: top 0% left 70%;
 }
 
 .pokemon-detail-container {
-  height: 270px;
-  z-index: 1;
 }
 
 .pokemon-detail-info {
   display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 130px;
+}
+
+.image-container {
+  position: absolute;
+  left: 30px;
+  top: -140px;
 }

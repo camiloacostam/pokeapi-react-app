@@ -27,18 +27,6 @@ export default function PokemonHeader({
         </div>
         <p># {pokemonId}</p>
       </span>
-      <span className="image-container">
-        {pokemonId > 1 && (
-          <button onClick={() => navigate(`/pokemon/${pokemonId - 1}`)}>
-            <ChevronLeftIcon />
-          </button>
-        )}
-
-        <img src={img} alt={`Pokemon image ${pokemonName}`} />
-        <button onClick={() => navigate(`/pokemon/${pokemonId + 1}`)}>
-          <ChevronRightIcon />
-        </button>
-      </span>
     </header>
   )
 }
