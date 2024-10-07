@@ -10,7 +10,7 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  min-width: 70%;
 }
 
 .input-wrap {

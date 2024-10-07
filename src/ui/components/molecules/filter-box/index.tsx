@@ -4,6 +4,7 @@ import { EFilterByOptions } from '../../../../domain/enums/filter'
 import { useDispatch, useSelector } from 'react-redux'
 import { setFilterBy } from '../../../../domain/filter-by-slice'
 import { reset } from '../../../../domain/page-counter-slice'
+import { reset as resetPokemonsType } from '../../../../domain/select-type-filter-slice'
 
 export default function FilterBox() {
   const dispatch = useDispatch()
@@ -12,6 +13,7 @@ export default function FilterBox() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === EFilterByOptions.FAVORITES) {
       dispatch(reset())
+      dispatch(resetPokemonsType())
     }
     dispatch(setFilterBy(e.target.value as EFilterByOptions))
   }

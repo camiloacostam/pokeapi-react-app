@@ -25,3 +25,16 @@
   display: flex;
   gap: 8px;
 }
+
+.sort-filter-section {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .filter-section {
+    flex-direction: column; /* Cambia el layout a columna en lugar de fila */
+    gap: 16px; /* Aumenta el espacio entre los elementos si es necesario */
+  }
+}

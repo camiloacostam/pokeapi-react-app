@@ -1,0 +1,30 @@
+.custom-select-container {
+  width: 100%; /* Ajusta el ancho a lo necesario */
+  max-width: 200px; /* Ancho máximo */
+}
+
+.custom-select {
+  width: 100%;
+  height: 32px;
+  padding: 0 1rem 0 1rem;
+  font-size: 16px;
+  border-radius: 10px; /* Bordes redondeados */
+  border: 1px solid #e1e1e1; /* Color de borde gris claro */
+  background-color: #f8f8f8; /* Fondo claro */
+  appearance: none; /* Remueve el estilo por defecto del select */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: #4f4f4f; /* Color del texto */
+  font-family: inherit;
+  outline: none;
+
+  transition: border-color 0.3s ease;
+}
+
+.custom-select:hover {
+  border-color: #c3c3c3; /* Borde en hover */
+}
+
+.custom-select:focus {
+  border-color: #a1a1a1; /* Borde en focus */
+}

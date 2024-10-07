@@ -4,6 +4,7 @@ import { PokeballIcon } from '../../atoms/icons/pokeball-icon'
 // Components
 import SearchBar from '../../atoms/search-bar'
 import SortByFilter from '../sort-by-filter'
+import PokemonTypeSelector from '../../atoms/pokemons-type-select'
 
 export default function HomeHeader() {
   return (
@@ -14,7 +15,10 @@ export default function HomeHeader() {
       </section>
       <section className="filter-section">
         <SearchBar />
-        <SortByFilter />
+        <div className="sort-filter-section">
+          <PokemonTypeSelector />
+          <SortByFilter />
+        </div>
       </section>
     </header>
   )
