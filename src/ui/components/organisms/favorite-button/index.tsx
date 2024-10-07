@@ -20,7 +20,9 @@ export default function FavoriteButton({
   color = '#DC0A2D'
 }: IFavoriteButtonProps) {
   const dispatch = useDispatch()
-  const { favoritePokemonsId } = useSelector((state) => state.favoritePokemons)
+  const { favoritePokemonsId } = useSelector(
+    (state: any) => state.favoritePokemons
+  )
   const isFavorite = favoritePokemonsId.some(
     (pokemon: number) => pokemon === pokemonId
   )

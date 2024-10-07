@@ -1,5 +1,4 @@
 import { usePokemonList } from '../../../hooks/use-pokemons-list'
-import { useSelector } from 'react-redux'
 //styles
 import './styles.css'
 // Components

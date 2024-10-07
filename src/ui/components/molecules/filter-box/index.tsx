@@ -6,7 +6,7 @@ import { setFilterBy } from '../../../../domain/filter-by-slice'
 
 export default function FilterBox() {
   const dispatch = useDispatch()
-  const { filterBy } = useSelector((state) => state.filterBy)
+  const { filterBy } = useSelector((state: any) => state.filterBy)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setFilterBy(e.target.value as EFilterByOptions))

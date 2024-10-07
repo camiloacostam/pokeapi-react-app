@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useQuery } from '@apollo/client'
 // Queries
 import {
@@ -16,9 +15,11 @@ interface IUsePokemonList {
 }
 
 export function usePokemonList(): IUsePokemonList {
-  const { filterBy } = useSelector((state) => state.filterBy)
-  const { searchFilter } = useSelector((state) => state.searchFilter)
-  const { favoritePokemonsId } = useSelector((state) => state.favoritePokemons)
+  const { filterBy } = useSelector((state: any) => state.filterBy)
+  const { searchFilter } = useSelector((state: any) => state.searchFilter)
+  const { favoritePokemonsId } = useSelector(
+    (state: any) => state.favoritePokemons
+  )
 
   const query =
     filterBy === EFilterByOptions.FAVORITES

@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../store/store'
-import { IPokemonDetail } from './types/pokemon'
 
 export interface IFavoritePokemonsSlice {
   favoritePokemonsId: number[]

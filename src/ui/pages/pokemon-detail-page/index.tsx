@@ -17,7 +17,7 @@ import { ChevronRightIcon } from '../../components/atoms/icons/chevron-right-ico
 export default function PokemonDetailPage() {
   const [bgColor, setBgColor] = useState('#fffff')
   const { id } = useParams()
-  const { loading, pokemonData } = usePokemonDetail(id)
+  const { loading, pokemonData } = usePokemonDetail(id || 0)
   const navigate = useNavigate()
 
   useEffect(() => {

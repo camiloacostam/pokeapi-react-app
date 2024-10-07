@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setSearchFilter } from '../../../../domain/search-filter-slice'
 
 export default function SearchBar() {
-  const { searchFilter } = useSelector((state) => state.searchFilter)
+  const { searchFilter } = useSelector((state: any) => state.searchFilter)
   const dispatch = useDispatch()
 
-  const handleInput = (e) => {
+  const handleInput = (e: any) => {
     dispatch(setSearchFilter(e.target.value))
   }
 
