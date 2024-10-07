@@ -13,7 +13,6 @@ export default function ProgressBar({ stat, color }: IProgressBarProps) {
     return `rgba(${r}, ${g}, ${b}, ${alpha})`
   }
 
-  // El color de fondo es el mismo color pero con opacidad reducida
   const backgroundColor = hexToRGBA(color, 0.3)
 
   return (
