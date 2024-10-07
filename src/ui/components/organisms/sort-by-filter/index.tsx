@@ -5,7 +5,6 @@ import IconButton from '../../atoms/icon-button'
 import FilterBox from '../../molecules/filter-box'
 //icons
 import { HashtagIcon } from '../../atoms/icons/hashtag-icon'
-import { UnderlineIcon } from '../../atoms/icons/underline-icon'
 
 interface ISortByFilterProps {}
 
