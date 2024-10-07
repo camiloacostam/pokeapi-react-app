@@ -3,12 +3,16 @@ import { EFilterByOptions } from '../../../../domain/enums/filter'
 //redux
 import { useDispatch, useSelector } from 'react-redux'
 import { setFilterBy } from '../../../../domain/filter-by-slice'
+import { reset } from '../../../../domain/page-counter-slice'
 
 export default function FilterBox() {
   const dispatch = useDispatch()
   const { filterBy } = useSelector((state: any) => state.filterBy)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === EFilterByOptions.FAVORITES) {
+      dispatch(reset())
+    }
     dispatch(setFilterBy(e.target.value as EFilterByOptions))
   }
 

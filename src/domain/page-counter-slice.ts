@@ -18,11 +18,14 @@ export const pageCounterSlice = createSlice({
     },
     decrementPageCounter: (state) => {
       state.pageCounter -= 1
+    },
+    reset: (state) => {
+      state.pageCounter = 0
     }
   }
 })
 
-export const { incrementPageCounter, decrementPageCounter } =
+export const { incrementPageCounter, decrementPageCounter, reset } =
   pageCounterSlice.actions
 export const selectPageCounter = (state: RootState) =>
   state.pageCounter.pageCounter
