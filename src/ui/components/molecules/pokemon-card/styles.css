@@ -18,6 +18,19 @@
   margin: 0;
 }
 
+.pokemon-figure-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.pokemon-figure-header button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .pokemon-id {
   color: #666666;
   display: inline;
@@ -33,6 +46,5 @@
 .pokemon-name {
   font-size: 1.2rem;
   font-weight: 400;
-  margin: 8px 0 0 0;
   text-transform: capitalize;
 }

@@ -1,4 +1,5 @@
 export enum EFilterByOptions {
   NAME = 'name',
-  ID = 'id'
+  ID = 'id',
+  FAVORITES = 'favorites'
 }

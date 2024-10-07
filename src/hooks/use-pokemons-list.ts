@@ -1,8 +1,13 @@
+import { useEffect } from 'react'
 import { useQuery } from '@apollo/client'
 // Queries
-import { GET_POKEMON_QUERY } from '../api/graphql/queries'
+import {
+  GET_POKEMON_QUERY,
+  GET_FAVORITES_POKEMONS_QUERY
+} from '../api/graphql/queries'
 //hooks
 import { useSelector } from 'react-redux'
+import { EFilterByOptions } from '../domain/enums/filter'
 
 interface IUsePokemonList {
   loading: boolean
@@ -13,17 +18,25 @@ interface IUsePokemonList {
 export function usePokemonList(): IUsePokemonList {
   const { filterBy } = useSelector((state) => state.filterBy)
   const { searchFilter } = useSelector((state) => state.searchFilter)
+  const { favoritePokemonsId } = useSelector((state) => state.favoritePokemons)
 
-  const { loading, error, data } = useQuery(GET_POKEMON_QUERY, {
+  const query =
+    filterBy === EFilterByOptions.FAVORITES
+      ? GET_FAVORITES_POKEMONS_QUERY
+      : GET_POKEMON_QUERY
+
+  const { loading, error, data } = useQuery(query, {
     variables: {
-      limit: 100,
       sortBy: {
         pokemon_v2_pokemon: {
-          [filterBy]: 'asc'
+          [filterBy === EFilterByOptions.FAVORITES
+            ? EFilterByOptions.ID
+            : filterBy]: 'asc'
         }
       },
       searchInt: (!isNaN(searchFilter) && parseInt(searchFilter)) || -1,
-      searchString: `%${searchFilter}%`
+      searchString: `%${searchFilter}%`,
+      idArray: filterBy === EFilterByOptions.FAVORITES ? favoritePokemonsId : -1
     }
   })
 

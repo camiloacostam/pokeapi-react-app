@@ -2,20 +2,19 @@ import './styles.css'
 //router
 import { useNavigate } from 'react-router-dom'
 //Components
-import { ChevronLeftIcon } from '../../atoms/icons/chevron-left-icon'
 import { BackIcon } from '../../atoms/icons/back-icon'
-import { ChevronRightIcon } from '../../atoms/icons/chevron-right-icon'
+import FavoriteButton from '../../organisms/favorite-button'
 
 interface IPokemonHeaderProps {
   pokemonName: string
   pokemonId: number
-  img: string
+  color?: string
 }
 
 export default function PokemonHeader({
   pokemonName,
   pokemonId,
-  img
+  color = '#DC0A2D'
 }: IPokemonHeaderProps) {
   const navigate = useNavigate()
   return (
@@ -25,7 +24,10 @@ export default function PokemonHeader({
           <BackIcon />
           <h1>{pokemonName}</h1>
         </div>
-        <p># {pokemonId}</p>
+        <div className="id-container">
+          <p># {pokemonId}</p>
+          <FavoriteButton pokemonId={pokemonId} color={color} />
+        </div>
       </span>
     </header>
   )

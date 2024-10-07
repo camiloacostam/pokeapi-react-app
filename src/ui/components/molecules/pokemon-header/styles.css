@@ -1,7 +1,6 @@
 .pokemon-header-container {
   width: 360px;
   color: white;
-  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -19,6 +18,12 @@
   align-items: center;
   gap: 14px;
   cursor: pointer;
+}
+
+.id-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .image-container {

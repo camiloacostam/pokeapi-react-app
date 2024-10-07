@@ -49,7 +49,7 @@ export default function PokemonDetailPage() {
             <PokemonHeader
               pokemonId={pokemonData?.id}
               pokemonName={pokemonData?.name}
-              img={pokemonData?.pokemon_v2_pokemonsprites[0]?.sprites}
+              color={'#ffff'}
             />
           </section>
           <section className="pokemon-detail-info">

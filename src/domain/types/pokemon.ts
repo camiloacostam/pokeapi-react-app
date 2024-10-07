@@ -5,6 +5,7 @@ interface IPokemonSummary {
 
 export interface IPokemonSummaryList {
   sprites: string
+  id: number
   pokemon_v2_pokemon: IPokemonSummary
 }
 

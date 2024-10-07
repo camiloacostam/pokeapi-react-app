@@ -38,6 +38,17 @@ export default function FilterBox() {
           />
           Name
         </label>
+        <label>
+          <input
+            type="radio"
+            id="sortByFavorites"
+            name="sortBy"
+            value={EFilterByOptions.FAVORITES}
+            checked={filterBy === EFilterByOptions.FAVORITES}
+            onChange={handleChange}
+          />
+          Favorites
+        </label>
       </div>
     </div>
   )
