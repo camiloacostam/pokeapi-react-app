@@ -20,6 +20,7 @@ export function usePokemonList(): IUsePokemonList {
   const { favoritePokemonsId } = useSelector(
     (state: any) => state.favoritePokemons
   )
+  const { pageCounter } = useSelector((state: any) => state.pageCounter)
 
   const query =
     filterBy === EFilterByOptions.FAVORITES
@@ -28,6 +29,8 @@ export function usePokemonList(): IUsePokemonList {
 
   const { loading, error, data } = useQuery(query, {
     variables: {
+      limit: 50,
+      offset: pageCounter * 50,
       sortBy: {
         pokemon_v2_pokemon: {
           [filterBy === EFilterByOptions.FAVORITES

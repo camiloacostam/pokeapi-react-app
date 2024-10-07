@@ -3,14 +3,17 @@ import './styles.css'
 import { IPokemonSummaryList } from '../../../../domain/types/pokemon'
 // Components
 import PokemonCard from '../../molecules/pokemon-card'
+import Paginator from '../../molecules/paginator'
 
 export default function PokemonList({
-  pokemonsList
+  pokemonsList,
+  totalOfPages
 }: {
   pokemonsList: IPokemonSummaryList[]
+  totalOfPages?: number
 }) {
   return (
-    <main className="pokemon-list-container">
+    <div className="pokemon-list-container">
       <div className="pokemon-list">
         {pokemonsList?.map((pokemon: IPokemonSummaryList) => (
           <PokemonCard
@@ -19,6 +22,7 @@ export default function PokemonList({
           />
         ))}
       </div>
-    </main>
+      <Paginator totalOfPages={totalOfPages} />
+    </div>
   )
 }

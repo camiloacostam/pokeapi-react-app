@@ -1,0 +1,30 @@
+.paginator-container {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  font-size: 18px;
+}
+
+.paginator-container button {
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.paginator-container button:disabled {
+  opacity: 0.3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.page-counter {
+  width: 100px;
+  text-align: center;
+}
