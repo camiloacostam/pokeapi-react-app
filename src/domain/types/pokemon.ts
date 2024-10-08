@@ -9,6 +9,11 @@ export interface IPokemonSummaryList {
   pokemon_v2_pokemon: IPokemonSummary
 }
 
+export interface IPokemonListItem {
+  id: number
+  name: string
+}
+
 export interface IPokemonType {
   pokemon_v2_type: {
     name: string

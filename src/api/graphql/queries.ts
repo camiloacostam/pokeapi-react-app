@@ -2,61 +2,81 @@ import { gql } from '@apollo/client'
 
 export const GET_POKEMON_QUERY = gql`
   query GetPokemons(
-    $limit: Int = 100
+    $limit: Int = 50
     $offset: Int = 0
-    $sortBy: pokemon_v2_pokemonsprites_order_by!
+    $sortBy: pokemon_v2_pokemon_order_by!
     $searchString: String
     $searchInt: Int
+    $filterTypes: String
+    $idArray: [Int!]
   ) {
-    pokemon_v2_pokemonsprites_aggregate(
+    pokemon_v2_pokemon(
+      limit: $limit
+      offset: $offset
       where: {
-        _or: [
-          { pokemon_v2_pokemon: { name: { _ilike: $searchString } } }
-          { pokemon_v2_pokemon: { id: { _eq: $searchInt } } }
-        ]
+        pokemon_v2_pokemontypes: {
+          pokemon_v2_type: { name: { _ilike: $filterTypes } }
+        }
+        _or: [{ name: { _like: $searchString } }, { id: { _eq: $searchInt } }]
+      }
+      order_by: [$sortBy]
+    ) {
+      name
+      id
+      pokemon_v2_pokemonsprites {
+        sprites(path: "other.official-artwork.front_default")
+      }
+    }
+    pokemon_v2_pokemon_aggregate(
+      where: {
+        pokemon_v2_pokemontypes: {
+          pokemon_v2_type: { name: { _ilike: $filterTypes } }
+        }
+        _or: [{ name: { _like: $searchString } }, { id: { _eq: $searchInt } }]
       }
     ) {
       aggregate {
         count
-      }
-    }
-    pokemon_v2_pokemonsprites(
-      limit: $limit
-      offset: $offset
-      order_by: [$sortBy]
-      where: {
-        _or: [
-          { pokemon_v2_pokemon: { name: { _ilike: $searchString } } }
-          { pokemon_v2_pokemon: { id: { _eq: $searchInt } } }
-        ]
-      }
-    ) {
-      sprites(path: "other.official-artwork.front_default")
-      pokemon_v2_pokemon {
-        name
-        id
       }
     }
   }
 `
 
 export const GET_FAVORITES_POKEMONS_QUERY = gql`
-  query GetFavoritesPokemons($idArray: [Int!], $offset: Int = 0) {
-    pokemon_v2_pokemonsprites_aggregate(
-      where: { _or: [{ id: { _in: $idArray } }] }
+  query GetFavoritesPokemons(
+    $idArray: [Int!]
+    $offset: Int = 0
+    $filterTypes: String
+    $limit: Int = 50
+    $sortBy: pokemon_v2_pokemon_order_by!
+  ) {
+    pokemon_v2_pokemon(
+      limit: $limit
+      offset: $offset
+      where: {
+        pokemon_v2_pokemontypes: {
+          pokemon_v2_type: { name: { _ilike: $filterTypes } }
+        }
+        _or: [{ id: { _in: $idArray } }]
+      }
+      order_by: [$sortBy]
+    ) {
+      name
+      id
+      pokemon_v2_pokemonsprites {
+        sprites(path: "other.official-artwork.front_default")
+      }
+    }
+    pokemon_v2_pokemon_aggregate(
+      where: {
+        pokemon_v2_pokemontypes: {
+          pokemon_v2_type: { name: { _ilike: $filterTypes } }
+        }
+        _or: [{ id: { _in: $idArray } }]
+      }
     ) {
       aggregate {
         count
-      }
-    }
-    pokemon_v2_pokemonsprites(
-      offset: $offset
-      where: { _or: [{ id: { _in: $idArray } }] }
-    ) {
-      sprites(path: "other.official-artwork.front_default")
-      pokemon_v2_pokemon {
-        name
-        id
       }
     }
   }

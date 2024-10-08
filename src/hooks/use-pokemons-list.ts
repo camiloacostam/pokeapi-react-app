@@ -7,6 +7,7 @@ import {
 //hooks
 import { useSelector } from 'react-redux'
 import { EFilterByOptions } from '../domain/enums/filter'
+import { EPokemonsTypes } from '../domain/enums/pokemons-types'
 
 interface IUsePokemonList {
   loading: boolean
@@ -21,6 +22,9 @@ export function usePokemonList(): IUsePokemonList {
     (state: any) => state.favoritePokemons
   )
   const { pageCounter } = useSelector((state: any) => state.pageCounter)
+  const { selectTypeFilter } = useSelector(
+    (state: any) => state.selectTypeFilter
+  )
 
   const query =
     filterBy === EFilterByOptions.FAVORITES
@@ -32,15 +36,13 @@ export function usePokemonList(): IUsePokemonList {
       limit: 50,
       offset: pageCounter * 50,
       sortBy: {
-        pokemon_v2_pokemon: {
-          [filterBy === EFilterByOptions.FAVORITES
-            ? EFilterByOptions.ID
-            : filterBy]: 'asc'
-        }
+        [filterBy === EFilterByOptions.FAVORITES ? 'id' : filterBy]: 'asc'
       },
       searchInt: (!isNaN(searchFilter) && parseInt(searchFilter)) || -1,
       searchString: `%${searchFilter}%`,
-      idArray: filterBy === EFilterByOptions.FAVORITES ? favoritePokemonsId : -1
+      filterTypes:
+        selectTypeFilter === EPokemonsTypes.ALL ? '%%' : selectTypeFilter,
+      idArray: filterBy === EFilterByOptions.FAVORITES ? favoritePokemonsId : []
     }
   })
 

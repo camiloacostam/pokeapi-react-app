@@ -18,9 +18,9 @@ export default function HomePage() {
           <Spinner />
         ) : (
           <PokemonList
-            pokemonsList={pokemonsData?.pokemon_v2_pokemonsprites}
+            pokemonsList={pokemonsData?.pokemon_v2_pokemon}
             totalOfPages={calculateTotalOfPage(
-              pokemonsData?.pokemon_v2_pokemonsprites_aggregate.aggregate.count,
+              pokemonsData?.pokemon_v2_pokemon_aggregate.aggregate.count,
               50
             )}
           />

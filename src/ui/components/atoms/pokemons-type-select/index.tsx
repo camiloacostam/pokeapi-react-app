@@ -2,6 +2,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 //redux
 import { setSelectTypeFilter } from '../../../../domain/select-type-filter-slice'
+import { reset } from '../../../../domain/page-counter-slice'
 //types and enums
 import { EPokemonsTypes } from '../../../../domain/enums/pokemons-types'
 //utils
@@ -17,6 +18,7 @@ const PokemonTypeSelector = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(setSelectTypeFilter(event.target.value as EPokemonsTypes))
+    dispatch(reset())
   }
 
   return (

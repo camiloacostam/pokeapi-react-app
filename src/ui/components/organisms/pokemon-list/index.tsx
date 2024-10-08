@@ -9,17 +9,14 @@ export default function PokemonList({
   pokemonsList,
   totalOfPages
 }: {
-  pokemonsList: IPokemonSummaryList[]
+  pokemonsList: any
   totalOfPages?: number
 }) {
   return (
     <div className="pokemon-list-container">
       <div className="pokemon-list">
         {pokemonsList?.map((pokemon: IPokemonSummaryList) => (
-          <PokemonCard
-            key={pokemon?.pokemon_v2_pokemon?.id}
-            pokemon={pokemon}
-          />
+          <PokemonCard key={pokemon?.id} pokemon={pokemon} />
         ))}
       </div>
       <Paginator totalOfPages={totalOfPages} />

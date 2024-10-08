@@ -30,11 +30,17 @@ export default function FavoriteButton({
   return (
     <>
       {isFavorite ? (
-        <button onClick={() => dispatch(removeFavoritePokemon(pokemonId))}>
+        <button
+          data-testid="favorite-button"
+          onClick={() => dispatch(removeFavoritePokemon(pokemonId))}
+        >
           <StartFilledIcon color={color} />
         </button>
       ) : (
-        <button onClick={() => dispatch(addFavoritePokemon(pokemonId))}>
+        <button
+          data-testid="favorite-button"
+          onClick={() => dispatch(addFavoritePokemon(pokemonId))}
+        >
           <StartIcon color={color} />
         </button>
       )}

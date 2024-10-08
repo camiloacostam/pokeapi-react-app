@@ -21,12 +21,19 @@ export const pageCounterSlice = createSlice({
     },
     reset: (state) => {
       state.pageCounter = 0
+    },
+    setPageCounter(state, action) {
+      state.pageCounter = action.payload
     }
   }
 })
 
-export const { incrementPageCounter, decrementPageCounter, reset } =
-  pageCounterSlice.actions
+export const {
+  incrementPageCounter,
+  decrementPageCounter,
+  reset,
+  setPageCounter
+} = pageCounterSlice.actions
 export const selectPageCounter = (state: RootState) =>
   state.pageCounter.pageCounter
 export default pageCounterSlice.reducer
